@@ -19,7 +19,7 @@ module.exports.AuthenticationError = AuthenticationError;
 function AuthorizationError(message, status, code) {
   this.name = 'AuthorizationError';
   this.message = (message && format(message)) || 'Authorization error';
-  this.status = status || 403;
+  this.status = status || 401;
   this.code = code || this.status;
 
   Error.captureStackTrace(this, AuthorizationError);
@@ -66,10 +66,24 @@ function ExternalAPIError(message, status, code) {
 
   Error.captureStackTrace(this, ExternalAPIError);
 }
-// ParamError instanceof Error
+// ExternalAPIError instanceof Error
 util.inherits(ExternalAPIError, Error);
 
 module.exports.ExternalAPIError = ExternalAPIError;
+
+// ExternalAPITimeoutError
+function ExternalAPITimeoutError(message, status, code) {
+  this.name = 'ExternalAPITimeoutError';
+  this.message = (message && format(message)) || 'External API Timeout error';
+  this.status = status || 504;
+  this.code = code || this.status;
+
+  Error.captureStackTrace(this, ExternalAPITimeoutError);
+}
+// ExternalAPITimeoutError instanceof Error
+util.inherits(ExternalAPITimeoutError, Error);
+
+module.exports.ExternalAPITimeoutError = ExternalAPITimeoutError;
 
 function format(message) {
   if (_.isArray(message)) {

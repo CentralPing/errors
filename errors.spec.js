@@ -28,8 +28,8 @@ describe('Errors collection', function () {
     expect(AuthorizationError.toString()).toBe('AuthorizationError: Authorization error');
     expect(AuthorizationError.name).toBe('AuthorizationError');
     expect(AuthorizationError.message).toBe('Authorization error');
-    expect(AuthorizationError.status).toBe(403);
-    expect(AuthorizationError.code).toBe(403);
+    expect(AuthorizationError.status).toBe(401);
+    expect(AuthorizationError.code).toBe(401);
     expect(AuthorizationError.stack).toBeDefined();
   });
 
@@ -67,5 +67,17 @@ describe('Errors collection', function () {
     expect(ExternalAPIError.status).toBe(502);
     expect(ExternalAPIError.code).toBe(502);
     expect(ExternalAPIError.stack).toBeDefined();
+  });
+
+  it('should create a new error object of the correct type: ExternalAPITimeoutError', function () {
+    var ExternalAPITimeoutError = new errors.ExternalAPITimeoutError();
+
+    expect(ExternalAPITimeoutError).toEqual(jasmine.any(Object));
+    expect(ExternalAPITimeoutError.toString()).toBe('ExternalAPITimeoutError: External API Timeout error');
+    expect(ExternalAPITimeoutError.name).toBe('ExternalAPITimeoutError');
+    expect(ExternalAPITimeoutError.message).toBe('External API Timeout error');
+    expect(ExternalAPITimeoutError.status).toBe(504);
+    expect(ExternalAPITimeoutError.code).toBe(504);
+    expect(ExternalAPITimeoutError.stack).toBeDefined();
   });
 });
