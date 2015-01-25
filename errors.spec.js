@@ -52,8 +52,8 @@ describe('Errors collection', function () {
     expect(ParamError.toString()).toBe('ParamError: Parameter error');
     expect(ParamError.name).toBe('ParamError');
     expect(ParamError.message).toBe('Parameter error');
-    expect(ParamError.status).toBe(200);
-    expect(ParamError.code).toBe(200);
+    expect(ParamError.status).toBe(400);
+    expect(ParamError.code).toBe(400);
     expect(ParamError.stack).toBeDefined();
   });
 
@@ -64,8 +64,8 @@ describe('Errors collection', function () {
     expect(ExternalAPIError.toString()).toBe('ExternalAPIError: External API error');
     expect(ExternalAPIError.name).toBe('ExternalAPIError');
     expect(ExternalAPIError.message).toBe('External API error');
-    expect(ExternalAPIError.status).toBe(200);
-    expect(ExternalAPIError.code).toBe(200);
+    expect(ExternalAPIError.status).toBe(502);
+    expect(ExternalAPIError.code).toBe(502);
     expect(ExternalAPIError.stack).toBeDefined();
   });
 });

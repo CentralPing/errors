@@ -47,7 +47,7 @@ module.exports.APIEndpointError = APIEndpointError;
 function ParamError(message, status, code) {
   this.name = 'ParamError';
   this.message = (message && format(message)) || 'Parameter error';
-  this.status = status || 200;
+  this.status = status || 400;
   this.code = code || this.status;
 
   Error.captureStackTrace(this, ParamError);
@@ -61,7 +61,7 @@ module.exports.ParamError = ParamError;
 function ExternalAPIError(message, status, code) {
   this.name = 'ExternalAPIError';
   this.message = (message && format(message)) || 'External API error';
-  this.status = status || 200;
+  this.status = status || 502;
   this.code = code || this.status;
 
   Error.captureStackTrace(this, ExternalAPIError);
