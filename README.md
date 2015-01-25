@@ -1,4 +1,4 @@
-mongoose-plugin-auth
+errors
 ====================
 
 A collection of error objects extended from `Error`.
