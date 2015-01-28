@@ -1,9 +1,12 @@
 {
   "name": "errors",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A collection of error objects extended from `Error`.",
   "main": "errors.js",
   "dependencies": {
+    "gulp-debug": "^2.0.0",
+    "gulp-jasmine": "^2.0.0",
+    "gulp-todo": "^2.3.1",
     "lodash-node": "^2.4.1"
   },
   "devDependencies": {
