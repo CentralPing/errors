@@ -3,9 +3,8 @@
   "version": "1.1.2",
   "description": "A collection of error objects extended from `Error`.",
   "main": "errors.js",
-  "dependencies": {},
-  "peerDependencies": {
-    "lodash-node": ">3.x"
+  "dependencies": {
+    "lodash-node": "^3.2.0"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
