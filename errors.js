@@ -1,19 +1,47 @@
 var util = require('util');
 var _ = require('lodash-node/modern');
 
-// ParamError
-function ParamError(message, status, code) {
-  this.name = 'ParamError';
-  this.message = (message && format(message)) || 'Parameter error';
-  this.status = status || 400;
+// APIEndpointError
+function APIEndpointError(message, status, code) {
+  this.name = 'APIEndpointError';
+  this.message = (message && format(message)) || 'API endpoint error';
+  this.status = status || 405;
   this.code = code || this.status;
 
-  Error.captureStackTrace(this, ParamError);
+  Error.captureStackTrace(this, APIEndpointError);
 }
-// ParamError instanceof Error
-util.inherits(ParamError, Error);
+// APIEndpointError instanceof Error
+util.inherits(APIEndpointError, Error);
 
-module.exports.ParamError = ParamError;
+module.exports.APIEndpointError = APIEndpointError;
+
+// APINotAcceptableError
+function APINotAcceptableError(message, status, code) {
+  this.name = 'APINotAcceptableError';
+  this.message = (message && format(message)) || 'API Not Acceptable error';
+  this.status = status || 406;
+  this.code = code || this.status;
+
+  Error.captureStackTrace(this, APINotAcceptableError);
+}
+// APINotAcceptableError instanceof Error
+util.inherits(APINotAcceptableError, Error);
+
+module.exports.APINotAcceptableError = APINotAcceptableError;
+
+// APIUnavailableError
+function APIUnavailableError(message, status, code) {
+  this.name = 'APIUnavailableError';
+  this.message = (message && format(message)) || 'API Unavailable error';
+  this.status = status || 503;
+  this.code = code || this.status;
+
+  Error.captureStackTrace(this, APIUnavailableError);
+}
+// APIUnavailableError instanceof Error
+util.inherits(APIUnavailableError, Error);
+
+module.exports.APIUnavailableError = APIUnavailableError;
 
 // AuthenticationError
 function AuthenticationError(message, status, code) {
@@ -43,33 +71,33 @@ util.inherits(AuthorizationError, Error);
 
 module.exports.AuthorizationError = AuthorizationError;
 
-// APIEndpointError
-function APIEndpointError(message, status, code) {
-  this.name = 'APIEndpointError';
-  this.message = (message && format(message)) || 'API endpoint error';
-  this.status = status || 405;
+// ExternalAPIError
+function ExternalAPIError(message, status, code) {
+  this.name = 'ExternalAPIError';
+  this.message = (message && format(message)) || 'External API error';
+  this.status = status || 502;
   this.code = code || this.status;
 
-  Error.captureStackTrace(this, APIEndpointError);
+  Error.captureStackTrace(this, ExternalAPIError);
 }
-// APIEndpointError instanceof Error
-util.inherits(APIEndpointError, Error);
+// ExternalAPIError instanceof Error
+util.inherits(ExternalAPIError, Error);
 
-module.exports.APIEndpointError = APIEndpointError;
+module.exports.ExternalAPIError = ExternalAPIError;
 
-// APINotAcceptableError
-function APINotAcceptableError(message, status, code) {
-  this.name = 'APINotAcceptableError';
-  this.message = (message && format(message)) || 'API Not Acceptable error';
-  this.status = status || 406;
+// ExternalAPITimeoutError
+function ExternalAPITimeoutError(message, status, code) {
+  this.name = 'ExternalAPITimeoutError';
+  this.message = (message && format(message)) || 'External API Timeout error';
+  this.status = status || 504;
   this.code = code || this.status;
 
-  Error.captureStackTrace(this, APINotAcceptableError);
+  Error.captureStackTrace(this, ExternalAPITimeoutError);
 }
-// APINotAcceptableError instanceof Error
-util.inherits(APINotAcceptableError, Error);
+// ExternalAPITimeoutError instanceof Error
+util.inherits(ExternalAPITimeoutError, Error);
 
-module.exports.APINotAcceptableError = APINotAcceptableError;
+module.exports.ExternalAPITimeoutError = ExternalAPITimeoutError;
 
 // ExternalAPIError
 function InternalAPIError(message, status, code) {
@@ -85,47 +113,33 @@ util.inherits(InternalAPIError, Error);
 
 module.exports.InternalAPIError = InternalAPIError;
 
-// ExternalAPIError
-function ExternalAPIError(message, status, code) {
-  this.name = 'ExternalAPIError';
-  this.message = (message && format(message)) || 'External API error';
-  this.status = status || 502;
+// NotFoundError
+function NotFoundError(message, status, code) {
+  this.name = 'NotFoundError';
+  this.message = (message && format(message)) || 'Not Found error';
+  this.status = status || 404;
   this.code = code || this.status;
 
-  Error.captureStackTrace(this, ExternalAPIError);
+  Error.captureStackTrace(this, NotFoundError);
 }
-// ExternalAPIError instanceof Error
-util.inherits(ExternalAPIError, Error);
+// NotFoundError instanceof Error
+util.inherits(NotFoundError, Error);
 
-module.exports.ExternalAPIError = ExternalAPIError;
+module.exports.NotFoundError = NotFoundError;
 
-// APIUnavailableError
-function APIUnavailableError(message, status, code) {
-  this.name = 'APIUnavailableError';
-  this.message = (message && format(message)) || 'API Unavailable error';
-  this.status = status || 503;
+// ParamError
+function ParamError(message, status, code) {
+  this.name = 'ParamError';
+  this.message = (message && format(message)) || 'Parameter error';
+  this.status = status || 400;
   this.code = code || this.status;
 
-  Error.captureStackTrace(this, APIUnavailableError);
+  Error.captureStackTrace(this, ParamError);
 }
-// APIUnavailableError instanceof Error
-util.inherits(APIUnavailableError, Error);
+// ParamError instanceof Error
+util.inherits(ParamError, Error);
 
-module.exports.APIUnavailableError = APIUnavailableError;
-
-// ExternalAPITimeoutError
-function ExternalAPITimeoutError(message, status, code) {
-  this.name = 'ExternalAPITimeoutError';
-  this.message = (message && format(message)) || 'External API Timeout error';
-  this.status = status || 504;
-  this.code = code || this.status;
-
-  Error.captureStackTrace(this, ExternalAPITimeoutError);
-}
-// ExternalAPITimeoutError instanceof Error
-util.inherits(ExternalAPITimeoutError, Error);
-
-module.exports.ExternalAPITimeoutError = ExternalAPITimeoutError;
+module.exports.ParamError = ParamError;
 
 function format(message) {
   if (_.isArray(message)) {
