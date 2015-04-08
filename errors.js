@@ -61,7 +61,7 @@ module.exports.AuthenticationError = AuthenticationError;
 function AuthorizationError(message, status, code) {
   this.name = 'AuthorizationError';
   this.message = (message && format(message)) || 'Authorization error';
-  this.status = status || 401;
+  this.status = status || 403;
   this.code = code || this.status;
 
   Error.captureStackTrace(this, AuthorizationError);

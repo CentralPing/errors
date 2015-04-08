@@ -67,8 +67,8 @@ describe('Errors collection', function () {
     expect(AuthorizationError.toString()).toBe('AuthorizationError: Authorization error');
     expect(AuthorizationError.name).toBe('AuthorizationError');
     expect(AuthorizationError.message).toBe('Authorization error');
-    expect(AuthorizationError.status).toBe(401);
-    expect(AuthorizationError.code).toBe(401);
+    expect(AuthorizationError.status).toBe(403);
+    expect(AuthorizationError.code).toBe(403);
     expect(AuthorizationError.stack).toBeDefined();
   });
 

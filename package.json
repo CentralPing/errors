@@ -1,6 +1,6 @@
 {
   "name": "errors",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A collection of error objects extended from `Error`.",
   "main": "errors.js",
   "dependencies": {
@@ -10,10 +10,10 @@
     "gulp": "^3.8.11",
     "gulp-debug": "^2.0.1",
     "gulp-if": "^1.2.5",
-    "gulp-jasmine": "^2.0.0",
-    "gulp-jshint": "^1.9.2",
-    "gulp-todo": "^2.5.0",
-    "yargs": "^3.5.3"
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-todo": "^2.5.1",
+    "yargs": "^3.7.0"
   },
   "scripts": {
     "test": "gulp test"
