@@ -1,5 +1,5 @@
 var util = require('util');
-var _ = require('lodash-node/modern');
+var _ = require('lodash');
 
 // APIEndpointError
 function APIEndpointError(message, status, code) {
